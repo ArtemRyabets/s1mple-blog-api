@@ -8,15 +8,15 @@
 
 ```mermaid
 graph TD
-    Client[Клієнт (Browser / Postman)] -->|HTTP Request| Router[Router (API Routes)]
+    Client["Клієнт (Browser / Postman)"] -->|HTTP Request| Router["Router (API Routes)"]
     
     subgraph "Backend Application (Node.js)"
         Router --> Controller[Controller Layer]
-        Controller --> Service[Service Layer (Business Logic)]
-        Service --> Repository[Repository Layer (Data Access)]
+        Controller --> Service["Service Layer (Business Logic)"]
+        Service --> Repository["Repository Layer (Data Access)"]
     end
     
-    Repository -->|SQL Queries| DB[(PostgreSQL Database)]
+    Repository -->|SQL Queries| DB[("PostgreSQL Database")]
 
     %% Опис кольорів для краси
     style Client fill:#f9f,stroke:#333
@@ -27,10 +27,10 @@ graph TD
     POST ||--o{ COMMENT : "має (has)"
     
     POST {
-        string id PK "Унікальний ідентифікатор (UUID)"
+        string id PK "Унікальний ідентифікатор"
         string title "Заголовок статті"
-        string content "Текст статті (Markdown/HTML)"
-        string author "Ім'я автора"
+        string content "Текст статті"
+        string author "Автор"
         datetime created_at "Дата створення"
     }
 
