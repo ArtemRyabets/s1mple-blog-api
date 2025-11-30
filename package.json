@@ -1,0 +1,26 @@
+{
+  "name": "s1mple-blog-api",
+  "version": "1.0.0",
+  "description": "SimpleBlog — це бекенд-сервіс (REST API) для платформи публікації контенту. Проект розроблений для забезпечення базової функціональності блогу: створення статей, їх редагування та коментування.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtemRyabets/s1mple-blog-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ArtemRyabets/s1mple-blog-api/issues"
+  },
+  "homepage": "https://github.com/ArtemRyabets/s1mple-blog-api#readme",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
