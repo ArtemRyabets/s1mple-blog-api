@@ -1,26 +1,21 @@
-import { Post } from '../models/post.model';
-import { v4 as uuidv4 } from 'uuid';
+import { PrismaClient, Post } from '@prisma/client';
 
-const posts: Post[] = [
-  {
-    id: '1',
-    title: 'Мій перший пост',
-    content: 'Це тестовий пост, створений автоматично.',
-    author: 'Admin',
-    createdAt: new Date().toISOString(),
-  },
-];
+// Підключаємо клієнт Prisma для роботи з базою
+const prisma = new PrismaClient();
 
+// Отримуємо всі пости з MongoDB
 export const findAll = async (): Promise<Post[]> => {
-  return posts;
+  return await prisma.post.findMany();
 };
 
-export const create = async (postData: Omit<Post, 'id' | 'createdAt'>): Promise<Post> => {
-  const newPost: Post = {
-    id: uuidv4(),
-    ...postData,
-    createdAt: new Date().toISOString(),
-  };
-  posts.push(newPost);
-  return newPost;
+// Створюємо новий пост у MongoDB
+// (ID та дату Prisma створить сама)
+export const create = async (postData: { title: string; content: string; author: string }): Promise<Post> => {
+  return await prisma.post.create({
+    data: {
+      title: postData.title,
+      content: postData.content,
+      author: postData.author,
+    },
+  });
 };
