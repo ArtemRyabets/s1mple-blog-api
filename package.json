@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ArtemRyabets/s1mple-blog-api#readme",
   "devDependencies": {
+    "@prisma/client": "^5.22.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
     "@types/node": "^24.10.1",
@@ -36,6 +37,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.3",
+    "prisma": "^5.22.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
