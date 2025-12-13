@@ -1,23 +1,20 @@
-import { PrismaClient, Post } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
-// Підключаємо клієнт Prisma для роботи з базою
-const prisma = new PrismaClient({
-  log: ['query', 'info', 'warn', 'error'],
+import { BlogManager } from '../../libs/blog-core/post-manager';
+
+
+export const prisma = new PrismaClient({
+    log: ['query', 'info', 'warn', 'error'],
 });
 
-// Отримуємо всі пости з MongoDB
-export const findAll = async (): Promise<Post[]> => {
-  return await prisma.post.findMany();
+
+const blogManager = new BlogManager(prisma);
+
+
+export const findAll = async () => {
+    return await blogManager.getAllPosts();
 };
 
-// Створюємо новий пост у MongoDB
-// (ID та дату Prisma створить сама)
-export const create = async (postData: { title: string; content: string; author: string }): Promise<Post> => {
-  return await prisma.post.create({
-    data: {
-      title: postData.title,
-      content: postData.content,
-      author: postData.author,
-    },
-  });
+export const create = async (postData: { title: string; content: string; author: string }) => {
+    return await blogManager.createPost(postData);
 };
