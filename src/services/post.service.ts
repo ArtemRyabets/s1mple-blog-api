@@ -1,7 +1,9 @@
 import { PrismaClient, Post } from '@prisma/client';
 
 // Підключаємо клієнт Prisma для роботи з базою
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  log: ['query', 'info', 'warn', 'error'],
+});
 
 // Отримуємо всі пости з MongoDB
 export const findAll = async (): Promise<Post[]> => {
